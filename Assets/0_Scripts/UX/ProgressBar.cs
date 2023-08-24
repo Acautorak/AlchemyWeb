@@ -7,7 +7,7 @@ using UnityEngine.UI;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
-// lol dva
+// lol dva rei
 public class ProgressBar : MonoBehaviour
 {
 #if UNITY_EDITOR
