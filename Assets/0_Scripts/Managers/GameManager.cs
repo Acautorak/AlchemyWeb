@@ -1,18 +1,39 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoSingletone<GameManager>
 {
-    // Start is called before the first frame update
-    void Start()
+    public int gold;
+    public int gems;
+
+    public void SaveResources()
     {
-        
+        PlayerPrefs.SetInt ("gold", gold);
+        PlayerPrefs.SetInt ("gems", gems);
+        PlayerPrefs.Save();
+        StartCoroutine("WaitForOneSecond");
     }
 
-    // Update is called once per frame
-    void Update()
+    public void LoadResources()
     {
-        
+        gold = PlayerPrefs.GetInt("gold");
+        gems = PlayerPrefs.GetInt("gems");
+    }   
+
+    //Testing
+    
+    private IEnumerator WaitForOneSecond()
+    {
+        while (true)
+        {
+        // Wait for 1 second
+        gold += 1;
+        Debug.LogError(gold);
+        yield return new WaitForSeconds(1.0f);
+        }
     }
+
 }

@@ -2,17 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MonoSingletone : MonoBehaviour
+public class MonoSingletone<T> : MonoBehaviour where T : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+public static T Instance {get; private set;}
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+protected virtual void Awake()
+{
+    if (Instance != null)
+        {
+            Debug.LogError("singleton error!!  " + transform + " " + Instance);
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this as T;
+}
+
 }
