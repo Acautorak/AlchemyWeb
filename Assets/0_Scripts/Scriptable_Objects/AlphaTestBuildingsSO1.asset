@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fff8385d493a22d4b80ab28f932f3da1, type: 3}
+  m_Name: AlphaTestBuildingsSO1
+  m_EditorClassIdentifier: 
+  buildings:
+  - buildingName: TestBuilding1
+    level: 0
+    buildingType: 0
+    baseCost: 1
+    costForNextUpgrade: 1
+    passiveIncomeTick: 1
+  - buildingName: TestBuilding2
+    level: 0
+    buildingType: 1
+    baseCost: 2
+    costForNextUpgrade: 2
+    passiveIncomeTick: 2

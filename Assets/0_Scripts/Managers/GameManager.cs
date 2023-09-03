@@ -8,11 +8,17 @@ public class GameManager : MonoSingletone<GameManager>
 {
     public int gold;
     public int gems;
+    [SerializeField] AlphaTestBuildingsSO alphaTestBuildingsSO;
+
+    private void Start()
+    {
+        buildings = alphaTestBuildingsSO.GetBuildings();
+    }
 
     public void SaveResources()
     {
-        PlayerPrefs.SetInt ("gold", gold);
-        PlayerPrefs.SetInt ("gems", gems);
+        PlayerPrefs.SetInt("gold", gold);
+        PlayerPrefs.SetInt("gems", gems);
         PlayerPrefs.Save();
         StartCoroutine("WaitForOneSecond");
     }
@@ -21,18 +27,20 @@ public class GameManager : MonoSingletone<GameManager>
     {
         gold = PlayerPrefs.GetInt("gold");
         gems = PlayerPrefs.GetInt("gems");
-    }   
+    }
 
     //Testing
-    
+
+    public List<Building> buildings;
+
     private IEnumerator WaitForOneSecond()
     {
         while (true)
         {
-        // Wait for 1 second
-        gold += 1;
-        Debug.LogError(gold);
-        yield return new WaitForSeconds(1.0f);
+            // Wait for 1 second
+            gold += 1;
+            Debug.LogError(gold);
+            yield return new WaitForSeconds(1.0f);
         }
     }
 
