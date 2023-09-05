@@ -7,7 +7,6 @@ using UnityEngine.UI;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
-// lol dva rei d s d
 public class ProgressBar : MonoBehaviour
 {
 #if UNITY_EDITOR
@@ -41,7 +40,8 @@ public class ProgressBar : MonoBehaviour
         GetCurrentFill();
 
         //current = baseBuilding.GetProgress();
-        //mask.fillAmount = current;
+        mask.fillAmount = current;
+        current += Time.deltaTime;
     }
 
     private void GetCurrentFill()
