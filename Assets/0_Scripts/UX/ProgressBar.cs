@@ -9,6 +9,7 @@ using UnityEditor;
 #endif
 public class ProgressBar : MonoBehaviour
 {
+    //LOL
 #if UNITY_EDITOR
     [MenuItem("GameObject/UI/Linear Progress Bar")]
     public static void AddLinearProgressBar()
