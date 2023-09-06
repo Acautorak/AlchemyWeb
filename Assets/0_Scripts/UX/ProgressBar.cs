@@ -23,7 +23,7 @@ public class ProgressBar : MonoBehaviour
     //private BaseBuilding baseBuilding;
     public int minimum = 0;
     public float maximum = 1;
-    public float current = 0;
+    public float current = 0.05f;
     public bool isIdle = true;
     public Color color;
     [SerializeField] private Image mask;
@@ -42,7 +42,8 @@ public class ProgressBar : MonoBehaviour
 
         //current = baseBuilding.GetProgress();
         mask.fillAmount = current;
-        current += Time.deltaTime;
+        current += 0.05f * Time.deltaTime;
+        GetCurrentFill();
     }
 
     private void GetCurrentFill()
@@ -53,7 +54,7 @@ public class ProgressBar : MonoBehaviour
         if (fillAmount > 1) current = 0;
         mask.fillAmount = fillAmount;
 
-        fill.color = color;
+        //fill.color = color;
     }
 
    // public void SetBaseBuilding(BaseBuilding baseBuildingLocal)

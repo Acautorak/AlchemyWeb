@@ -15,6 +15,14 @@ public class Building
     [SerializeField] private int passiveIncomeTick;
     [SerializeField] private Image buildingImage;
 
+    public int maximum;
+    public int current;
+
+    public float GetProgress()
+    {
+        return current/maximum;
+    }
+
 
     public string GetBuidlingName()
     {
