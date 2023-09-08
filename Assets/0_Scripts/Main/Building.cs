@@ -11,16 +11,35 @@ public class Building
     [SerializeField] private int baseCost;
     [SerializeField] private int costForNextUpgrade;
     [SerializeField] private int baseIncomeValue;
-    [SerializeField] private int activeIncomeTick; 
+    [SerializeField] private int activeIncomeTick;
     [SerializeField] private int passiveIncomeTick;
     [SerializeField] private Image buildingImage;
 
-    public int maximum;
-    public int current;
 
+    public float maximum = 100;
+    public float current = 0;
+
+    public float timeToCompleteTick = 3f;
+
+    public void Update()
+    {
+        current += maximum / timeToCompleteTick * Time.deltaTime;
+        if (current > maximum)
+        {
+            current = 0;
+        }
+        Debug.LogWarning(current + " " + buildingName);
+    }
+
+    public float GetCurrentFill()
+    {
+        return current / maximum;
+    }
+
+    #region GetSet
     public float GetProgress()
     {
-        return current/maximum;
+        return current / maximum;
     }
 
 
@@ -68,7 +87,7 @@ public class Building
     {
         return buildingImage;
     }
-
+    #endregion
 
 }
 

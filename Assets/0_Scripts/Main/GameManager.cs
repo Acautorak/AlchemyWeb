@@ -44,4 +44,12 @@ public class GameManager : MonoSingletone<GameManager>
         }
     }
 
+    void Update()
+    {
+        foreach (Building b in buildings)
+        {
+            b.Update();
+        }
+    }
+
 }

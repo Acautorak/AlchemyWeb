@@ -42,7 +42,7 @@ public class ProgressBar : MonoBehaviour
 
         //current = baseBuilding.GetProgress();
         mask.fillAmount = current;
-        current += 0.05f * Time.deltaTime;
+        current += 5 * Time.deltaTime;
         GetCurrentFill();
     }
 
