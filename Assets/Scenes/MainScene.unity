@@ -2196,6 +2196,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1897658549}
+  - component: {fileID: 1897658550}
   m_Layer: 5
   m_Name: Building Visual
   m_TagString: Untagged
@@ -2227,6 +2228,35 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 485.3102, y: 130}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1897658550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1897658548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff6cce3175ea37e4db615b50218e15f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  building:
+    buildingName: 
+    level: 0
+    buildingType: 0
+    baseCost: 0
+    costForNextUpgrade: 0
+    baseIncomeValue: 0
+    activeIncomeTick: 0
+    passiveIncomeTick: 0
+    buildingImage: {fileID: 0}
+    maximum: 100
+    current: 0
+    timeToCompleteTick: 3
+  progressBar: {fileID: 1701900275}
+  artworkImage: {fileID: 342490544}
+  upgradeButton: {fileID: 932397082}
+  specialButton: {fileID: 1440673313}
 --- !u!1 &1898475650
 GameObject:
   m_ObjectHideFlags: 0
