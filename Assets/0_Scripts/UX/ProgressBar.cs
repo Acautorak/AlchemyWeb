@@ -32,7 +32,7 @@ public class ProgressBar : MonoBehaviour
 
     void Start()
     {
-      //  baseBuilding.OnBarProgressChanged += BaseBuilding_OnBarProgressChanged; s
+      //  baseBuilding.OnBarProgressChanged += BaseBuilding_OnBarProgressChanged; s d
     }
 
     void Update()
