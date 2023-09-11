@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,8 +10,15 @@ public class BuildingVisual : MonoBehaviour
     [SerializeField] private Button upgradeButton;
     [SerializeField] private Button specialButton;
 
-    public void GetProgressBar()
+    private void Start()
     {
+        upgradeButton.onClick.AddListener( () => Debug.LogWarning(building.maximum));
         
     }
+
+    private void Update()
+    {
+        progressBar.GetCurrentFill();
+    }
 }
+
