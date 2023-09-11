@@ -11,5 +11,8 @@ public class BuildingVisual : MonoBehaviour
     [SerializeField] private Button upgradeButton;
     [SerializeField] private Button specialButton;
 
-
+    public void GetProgressBar()
+    {
+        
+    }
 }
