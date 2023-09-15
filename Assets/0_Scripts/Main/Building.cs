@@ -28,7 +28,6 @@ public class Building
         {
             current = 0;
         }
-        Debug.LogWarning(current + " " + buildingName);
     }
 
     public float GetCurrentFill()
