@@ -525,6 +525,7 @@ GameObject:
   m_Component:
   - component: {fileID: 464355893}
   - component: {fileID: 464355892}
+  - component: {fileID: 464355894}
   m_Layer: 0
   m_Name: GameManagers
   m_TagString: Untagged
@@ -546,8 +547,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gold: 0
   gems: 0
-  alphaTestBuildingsSO: {fileID: 11400000, guid: 4e792d4ad764256429afae6a29bfa2fa, type: 2}
-  buildings: []
 --- !u!4 &464355893
 Transform:
   m_ObjectHideFlags: 0
@@ -563,6 +562,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &464355894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 464355891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df06f3de19be92148a89faac70c0bd81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alphaTestBuildingsSO: {fileID: 11400000, guid: 4e792d4ad764256429afae6a29bfa2fa, type: 2}
+  buildings: []
 --- !u!1 &488673843
 GameObject:
   m_ObjectHideFlags: 0

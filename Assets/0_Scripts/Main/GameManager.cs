@@ -8,11 +8,10 @@ public class GameManager : MonoSingletone<GameManager>
 {
     public int gold;
     public int gems;
-    [SerializeField] AlphaTestBuildingsSO alphaTestBuildingsSO;
+
 
     private void Start()
     {
-        buildings = alphaTestBuildingsSO.GetBuildings();
     }
 
     public void SaveResources()
@@ -31,7 +30,6 @@ public class GameManager : MonoSingletone<GameManager>
 
     //Testing
 
-    public List<Building> buildings;
 
     private IEnumerator WaitForOneSecond()
     {
@@ -44,12 +42,6 @@ public class GameManager : MonoSingletone<GameManager>
         }
     }
 
-    void Update()
-    {
-        foreach (Building b in buildings)
-        {
-            b.Update();
-        }
-    }
+    
 
 }

@@ -23,12 +23,22 @@ public class Building
 
     public void Update()
     {
+        if (level <= 0) return;
+
         current += maximum / timeToCompleteTick * Time.deltaTime;
         if (current > maximum)
         {
             current = 0;
         }
+        Debug.LogWarning(current);
     }
+
+    public void Upgrade()
+    {
+        level += 1;
+    }
+
+
 
     public float GetCurrentFill()
     {

@@ -9,7 +9,6 @@ using UnityEditor;
 #endif
 public class ProgressBar : MonoBehaviour
 {
-    //LOL 2
 #if UNITY_EDITOR
     [MenuItem("GameObject/UI/Linear Progress Bar")]
     public static void AddLinearProgressBar()
@@ -19,8 +18,6 @@ public class ProgressBar : MonoBehaviour
     }
 
 #endif
-
-    //private BaseBuilding baseBuilding;
     public int minimum = 0;
     public float maximum = 1;
     public float current = 0.05f;
@@ -39,9 +36,6 @@ public class ProgressBar : MonoBehaviour
     {
         if (!isIdle)
         GetCurrentFill();
-
-        //current = baseBuilding.GetProgress();
-        mask.fillAmount = current;
         current += 5 * Time.deltaTime;
         GetCurrentFill();
     }
