@@ -6,8 +6,12 @@ using System;
 public class Building
 {
     [SerializeField] private string buildingName;
-    [SerializeField] private int level;
     [SerializeField] private BuildingType buildingType;
+
+    [SerializeField] private float upgradeMultiplier = 1.15f;
+    [SerializeField] private float costMultiplier = 1.20f;
+
+    [SerializeField] private int level;
     [SerializeField] private int baseCost;
     [SerializeField] private int costForNextUpgrade;
     [SerializeField] private int baseIncomeValue;
@@ -35,7 +39,17 @@ public class Building
 
     public void Upgrade()
     {
-        level += 1;
+        if (GameManager.Instance.gold >= costForNextUpgrade)
+        {
+            level += 1;
+            costForNextUpgrade = (int)Math.Round(baseCost * Math.Pow(upgradeMultiplier, level));
+            activeIncomeTick = (int)Math.Round(baseIncomeValue * Math.Pow(costMultiplier, level));
+
+        }
+        else
+        {
+            Debug.LogWarning("Need more gold = " + (costForNextUpgrade - GameManager.Instance.gold));
+        }
     }
 
 
