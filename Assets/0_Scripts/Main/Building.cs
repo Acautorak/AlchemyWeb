@@ -22,6 +22,7 @@ public class Building
 
     public float maximum = 100;
     public float current = 0;
+    // danas
 
     public float timeToCompleteTick = 3f;
 
