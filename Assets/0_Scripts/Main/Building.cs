@@ -5,6 +5,8 @@ using System;
 [Serializable]
 public class Building
 {
+    public static EventHandler OnAnyProgressBarComplete;
+    public EventHandler OnProgressBarChanged;
     [SerializeField] private string buildingName;
     [SerializeField] private BuildingType buildingType;
 
@@ -20,28 +22,23 @@ public class Building
     [SerializeField] private Image buildingImage;
 
 
-    public float maximum = 100;
-    public float current = 0;
+    private const float MAX =1f;
+    private float progress=0f;
+    private float startTime;
     // danas
 
     public float timeToCompleteTick = 3f;
 
     public void Update()
     {
-        if (level <= 0) return;
-
-        current += maximum / timeToCompleteTick * Time.deltaTime;
-        if (current > maximum)
-        {
-            current = 0;
-        }
-        Debug.LogWarning(current);
+        FillBar();
     }
 
     public void Upgrade()
     {
         if (GameManager.Instance.gold >= costForNextUpgrade)
         {
+            GameManager.Instance.gold -= costForNextUpgrade;
             level += 1;
             costForNextUpgrade = (int)Math.Round(baseCost * Math.Pow(upgradeMultiplier, level));
             activeIncomeTick = (int)Math.Round(baseIncomeValue * Math.Pow(costMultiplier, level));
@@ -53,17 +50,34 @@ public class Building
         }
     }
 
-
-
-    public float GetCurrentFill()
+    private void FillBar()
     {
-        return current / maximum;
+        if (level <= 0) return;
+
+        float elapsedTime = Time.time - startTime;
+        progress = elapsedTime / timeToCompleteTick;
+
+
+        if (progress > MAX)
+        {
+            progress = 0f;
+            ResetTimer();
+
+            OnAnyProgressBarComplete?.Invoke(this, EventArgs.Empty);
+        }
+        Debug.LogWarning(progress);
     }
+
+    private void ResetTimer()
+    {
+        startTime = Time.time;
+    }
+
 
     #region GetSet
     public float GetProgress()
     {
-        return current / maximum;
+        return progress;
     }
 
 
