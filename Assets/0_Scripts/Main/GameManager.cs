@@ -45,7 +45,7 @@ public class GameManager : MonoSingletone<GameManager>
     public void AddGold(int value)
     {
         gold += value;
-        // dodao bb ss sas cocaine SS
+        // dodao bb ss sas cocaine SS ds
     }
 
 }
