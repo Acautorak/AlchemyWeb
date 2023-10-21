@@ -6,7 +6,7 @@ using UnityEngine;
 public class AlphaTestBuildingsSO : ScriptableObject
 {
     [SerializeField] List<Building> buildings;
-    // ok
+    // ok art
 
     public List<Building> GetBuildings()
     {
