@@ -8,5 +8,6 @@ public class UiManager : MonoBehaviour
     [SerializeField] private RectTransform blackFadePanel;
 
     [SerializeField] private Button buildBtn, eventBtn, settingsBtn;
+    //btn
     
 }
