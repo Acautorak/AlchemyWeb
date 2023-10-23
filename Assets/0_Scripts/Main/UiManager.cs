@@ -5,9 +5,57 @@ using UnityEngine.UI;
 
 public class UiManager : MonoBehaviour
 {
-    [SerializeField] private RectTransform blackFadePanel;
+    [SerializeField] private RectTransform blackFadePanel, buildingsPanel;
 
     [SerializeField] private Button buildBtn, eventBtn, settingsBtn;
-    //btn
-    
+
+
+    private float originalAlpha;
+    private const float BLACKFADETIME =0.3f;
+    private  Vector2 BUILDINGSOUTOFBOUNDS =new Vector2(-Screen.width - 680, 0f);
+
+    private Vector2 originalBuildingsPanelPosition;
+
+    private void Start()
+    {
+        buildBtn.onClick.AddListener(() => OnBuildBtnClick());
+        originalAlpha = blackFadePanel.GetComponent<Image>().color.a;
+        originalBuildingsPanelPosition = buildingsPanel.localPosition;
+        buildingsPanel.localPosition = BUILDINGSOUTOFBOUNDS;
+        buildingsPanel.gameObject.SetActive(false);
+    }
+
+    public void OnBuildBtnClick()
+    {
+        ToggleBlackFade();
+        if(!buildingsPanel.gameObject.activeSelf)
+        {
+            buildingsPanel.gameObject.SetActive(true);
+            buildingsPanel.LeanMoveLocal(originalBuildingsPanelPosition, BLACKFADETIME).setEaseInBounce();
+        }
+        else
+            buildingsPanel.LeanMoveLocal(BUILDINGSOUTOFBOUNDS, BLACKFADETIME).setEaseOutBounce().setOnComplete(() => 
+            {
+                buildingsPanel.gameObject.SetActive(false);
+            });
+
+    }
+    private void ToggleBlackFade()
+    {
+        if (blackFadePanel.gameObject.activeSelf)
+        {
+            blackFadePanel.LeanAlpha(0, BLACKFADETIME).setOnComplete(() =>
+            {
+                blackFadePanel.gameObject.SetActive(false);
+            });
+        }
+        else
+        {
+            blackFadePanel.gameObject.SetActive(true);
+            blackFadePanel.GetComponent<Image>().color = new Color(0, 0, 0, 0);
+
+            blackFadePanel.LeanAlpha(originalAlpha, BLACKFADETIME);
+        }
+    }
+
 }

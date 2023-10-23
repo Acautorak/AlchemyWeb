@@ -388,7 +388,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -433,7 +433,6 @@ RectTransform:
   - {fileID: 295175431}
   - {fileID: 849410353}
   - {fileID: 1242886552}
-  - {fileID: 1897658549}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -725,7 +724,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 565a1953ea35ee94188b237018128146, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blackFadePanel: {fileID: 0}
+  blackFadePanel: {fileID: 1502499702}
+  buildingsPanel: {fileID: 2022559181}
   buildBtn: {fileID: 488673845}
   eventBtn: {fileID: 536659712}
   settingsBtn: {fileID: 319584652}
@@ -1888,13 +1888,14 @@ GameObject:
   - component: {fileID: 1502499702}
   - component: {fileID: 1502499704}
   - component: {fileID: 1502499703}
+  - component: {fileID: 1502499705}
   m_Layer: 5
   m_Name: Blackness 50&
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1502499702
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1953,6 +1954,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1502499701}
   m_CullTransparentMesh: 1
+--- !u!225 &1502499705
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502499701}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1599979582
 GameObject:
   m_ObjectHideFlags: 0
@@ -2234,7 +2247,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1897658548}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2244,12 +2257,12 @@ RectTransform:
   - {fileID: 932397081}
   - {fileID: 1440673312}
   - {fileID: 103658272}
-  m_Father: {fileID: 316744477}
-  m_RootOrder: 6
+  m_Father: {fileID: 2022559181}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -647, y: 229}
+  m_AnchoredPosition: {x: -27, y: 229}
   m_SizeDelta: {x: 485.3102, y: 130}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1897658550
@@ -2370,6 +2383,7 @@ GameObject:
   - component: {fileID: 1912012315}
   - component: {fileID: 1912012317}
   - component: {fileID: 1912012316}
+  - component: {fileID: 1912012318}
   m_Layer: 5
   m_Name: Event indicator
   m_TagString: Untagged
@@ -2435,6 +2449,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1912012314}
   m_CullTransparentMesh: 1
+--- !u!114 &1912012318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912012314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7efe23ed6a67ee54a81517f912c844a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpHeight: 50
+  jumpDuration: 1
+  easeType: 16
 --- !u!1 &2022559180
 GameObject:
   m_ObjectHideFlags: 0
@@ -2447,7 +2476,7 @@ GameObject:
   - component: {fileID: 2022559183}
   - component: {fileID: 2022559182}
   m_Layer: 5
-  m_Name: Card
+  m_Name: BuildingsPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2464,7 +2493,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1897658549}
   m_Father: {fileID: 316744477}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
