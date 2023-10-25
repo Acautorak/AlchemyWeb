@@ -12,7 +12,6 @@ public class UiManager : MonoBehaviour
 
     [SerializeField] private Button buildBtn, eventBtn, settingsBtn;
 
-
     private float originalAlpha;
     private const float BLACKFADETIME =0.3f;
     
@@ -36,7 +35,7 @@ public class UiManager : MonoBehaviour
         if(!buildingsPanel.gameObject.activeSelf)
         {
             buildingsPanel.gameObject.SetActive(true);
-            //buildingsPanel.transform.localPosition = originalBuildingsPanelPosition; WE DEVIDE BY 3 FOR BETTER ANIMATION EFFECT
+            //buildingsPanel.transform.localPosition = originalBuildingsPanelPosition; WE DEVIDE BY 3 FOR BETTER ANIMATION EFFECT WHG
             buildingsPanel.LeanMoveLocal(originalBuildingsPanelPosition, BLACKFADETIME/3).setEaseInBounce();
         }
         else
