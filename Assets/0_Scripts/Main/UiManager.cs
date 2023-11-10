@@ -16,7 +16,7 @@ public class UiManager : MonoBehaviour
     private const float BLACKFADETIME =0.3f;
     
 
-    // 680 is width of the panel winows
+    // 680 is width of the panel
     private  Vector2 BUILDINGSOUTOFBOUNDS =new Vector2(-Screen.width - 680, 0f);
     private Vector2 originalBuildingsPanelPosition;
 
