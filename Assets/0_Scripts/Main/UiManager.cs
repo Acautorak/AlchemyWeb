@@ -12,6 +12,8 @@ public class UiManager : MonoBehaviour
 
     [SerializeField] private Button buildBtn, eventBtn, settingsBtn;
 
+    [SerializeField] private TextMeshProUGUI goldTextGUI, gemsTextGUI;
+
     private float originalAlpha;
     private const float BLACKFADETIME =0.3f;
     
@@ -27,6 +29,12 @@ public class UiManager : MonoBehaviour
         originalBuildingsPanelPosition = buildingsPanel.localPosition;
         buildingsPanel.localPosition = BUILDINGSOUTOFBOUNDS;
         buildingsPanel.gameObject.SetActive(false);
+    }
+
+    private void Update()
+    {
+        goldTextGUI.text = GameManager.Instance.gold.ToString();
+        gemsTextGUI.text = GameManager.Instance.gems.ToString();
     }
 
     public void OnBuildBtnClick()
