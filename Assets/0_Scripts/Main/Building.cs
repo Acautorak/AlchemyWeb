@@ -21,6 +21,8 @@ public class Building
     [SerializeField] private int passiveIncomeTick;
     [SerializeField] private Image buildingImage;
 
+    public float gps;
+
 
     private const float MAX =1f;
     private float progress=0f;
