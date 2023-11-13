@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class RadialBuildingVisual : MonoBehaviour
 {
+    //morao sam da dodajm ovu klasu jer je stara k
     public Building building;
     [SerializeField] private Image fill;
     private const float  maxRadial = 360;
